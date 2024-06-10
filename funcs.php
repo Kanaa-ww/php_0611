@@ -7,10 +7,16 @@ function h($str){
 //DB接続
 function db_conn(){
   try {
-      $db_name = "book0611_db";    //データベース名
-      $db_id   = "root";      //アカウント名
-      $db_pw   = "";      //パスワード：XAMPPはパスワード無しに修正してください。
-      $db_host = "localhost"; //DBホスト
+    // 開発環境用
+      // $db_name = "book0611_db";    //データベース名
+      // $db_id   = "root";      //アカウント名
+      // $db_pw   = "";      //パスワード：XAMPPはパスワード無しに修正してください。
+      // $db_host = "localhost"; //DBホスト
+     //sakuraサーバー用
+      $db_name = "lifeee_book0611_db";    //sakuraデータベース名
+      $db_id   = "lifeee";      //アカウント名
+      $db_pw   = "kana1234";      //パスワード：XAMPPはパスワード無しに修正してください。
+      $db_host = "mysql57.lifeee.sakura.ne.jp"; //DBホスト
       return new PDO('mysql:dbname='.$db_name.';charset=utf8;host='.$db_host, $db_id, $db_pw);
   } catch (PDOException $e) {
     exit('DB Connection Error:'.$e->getMessage());
